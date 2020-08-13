@@ -29,3 +29,14 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+dump.rdb
+.idea/.generators
+.idea/.rakeTasks
+dump.rdb
+.idea/dataSources.xml
+.idea/insta_clone_uenishi.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/sqlDataSources.xml
+.idea/workspace.xml
+.idea/vcs.xml
