@@ -40,6 +40,7 @@ gem 'popper_js'
 gem 'sorcery'
 gem 'redis-rails'
 gem 'mysql2'
+gem 'font-awesome-sass', '~> 5.4.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
