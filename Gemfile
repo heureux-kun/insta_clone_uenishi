@@ -39,6 +39,7 @@ gem 'jquery-rails'
 gem 'popper_js'
 gem 'sorcery'
 gem 'redis-rails'
+gem 'rails-i18n'
 gem 'mysql2'
 gem 'font-awesome-sass', '~> 5.4.1'
 
