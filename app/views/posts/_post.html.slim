@@ -3,7 +3,7 @@
     .d-flex.align-items-center
       = image_tag 'https://placehold.jp/150x150.png', size: '40x40', class: 'rounded-circle mr-1'
       / postモデルにbelongs_to、userモデルにhas_manyを入れているので、自動でpostのuser_idとuserのidを紐づけてくれている
-      = post.user.name
+      = post.user.username
   = link_to post_path(post) do
     .swiper-container
       .swiper-wrapper
