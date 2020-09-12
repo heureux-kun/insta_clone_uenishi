@@ -11,5 +11,6 @@
 #
 class Post < ApplicationRecord
   belongs_to :user
-  mount_uploader :images, PostImageUploader
+  mount_uploaders :images, PostImageUploader
+  serialize :images, JSON # If you use SQLite, add this line.
 end
