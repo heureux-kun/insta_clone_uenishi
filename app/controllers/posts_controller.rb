@@ -2,6 +2,11 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
   end
+
+  def show
+    @post = Post.find(params[:id])
+  end
+
   def new
     @post = Post.new
   end
@@ -15,6 +20,13 @@ class PostsController < ApplicationController
       flash.now[:danger ] = '投稿に失敗しました'
       render :new
     end
+  end
+
+  # ここの書き方全然思いつかなかった
+  def destroy
+    @post = current_user.posts.find(params[:id])
+    @post.destroy!
+    redirect_to posts_path, success: '投稿を削除しました'
   end
 
   def post_params

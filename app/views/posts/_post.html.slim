@@ -4,6 +4,15 @@
       = image_tag 'https://placehold.jp/150x150.png', size: '40x40', class: 'rounded-circle mr-1'
       / postモデルにbelongs_to、userモデルにhas_manyを入れているので、自動でpostのuser_idとuserのidを紐づけてくれている
       = post.user.username
+      / current_user&.の「&.」→ぼっち演算子
+      / ログインしないときにcurrent_userの後に「&」を付けずに実行すると、nilに対してメソッドを使おうとしてエラーになる
+      / 「&」をつけると、そのメソッドがnilでなかった場合のみ右辺のメソッドが実行される
+      - if current_user&.own?(post)
+        .ml-auto
+          = link_to post_path(post), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'mr-3' do
+            = icon 'far', 'trash-alt', class: 'fa-lg'
+          = link_to root_path do
+            = icon 'far', 'edit', class: 'fa-lg'
   = link_to post_path(post) do
     .swiper-container
       .swiper-wrapper
