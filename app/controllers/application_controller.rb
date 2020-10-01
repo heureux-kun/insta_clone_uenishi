@@ -11,8 +11,4 @@ class ApplicationController < ActionController::Base
   #   redirect_to login_path, danger: t('defaults.please_login')
   # end
   # ↑ここまで
-
-  def post_params
-    params.require(:post).permit(:images)
-  end
 end

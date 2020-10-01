@@ -20,7 +20,7 @@
         - post.images.each do |image|
           .swiper-slide
             / ファイルのURLを取得するには「url」というインスタンスメソッドを使う必要あり（imageだけだとインスタンス自体になる（多分））
-            = image_tag image.mainSize.url, class: 'card-img-top'
+            = image_tag image.url, class: 'card-img-top'
       .swiper-pagination
   .card-body
     .card-text

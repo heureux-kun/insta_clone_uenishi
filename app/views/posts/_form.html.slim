@@ -4,7 +4,7 @@
   = render 'shared/error_messages', object: post
   .form-group
     = f.label :images
-    = f.file_field :images, accept: 'image/jpeg,image/gif,image/png', multiple: true, class: 'form-control'
+    = f.file_field :images, accept: 'image/*', multiple: true, class: 'form-control'
     - post.images.each do |image|
       = image_tag image.thumb.url, size: '100x100', class: 'image-thumbnail'
   .form-group

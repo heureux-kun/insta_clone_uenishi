@@ -4,7 +4,7 @@
       .swiper-wrapper
         - @post.images.each do |image|
           .swiper-slide
-            = image_tag image.mainSize.url
+            = image_tag image.url
       .swiper-pagination
   .image-info-box
     .profile-box.p-3
