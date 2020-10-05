@@ -1,0 +1,14 @@
+/ 「local: true」がない場合、Rails5ではAjaxによる送信という意味になる。普通にHTMLとしてフォームを送信する場合にlocal: trueが必要になる
+= form_with model: post, local: true do |f|
+  / どのパーシャルにも、パーシャル名からアンダースコアを取り除いた名前を持つローカル変数が与えられます。:objectオプションを使用することで、このローカル変数にオブジェクトを渡すことができる
+  = render 'shared/error_messages', object: post
+  .form-group
+    = f.label :images
+    = f.file_field :images, accept: 'image/*', multiple: true, class: 'form-control'
+    - post.images.each do |image|
+      = image_tag image.thumb.url, size: '100x100', class: 'image-thumbnail'
+  .form-group
+    = f.label :body
+    = f.text_area :body, class: 'form-control'
+  / これでなぜボタンのラベルが「更新する」になるのか分からない
+  = f.submit class: 'btn btn-primary btn-raised'

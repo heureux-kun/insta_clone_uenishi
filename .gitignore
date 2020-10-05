@@ -33,3 +33,5 @@ dump.rdb
 .idea
 .vscode
 database.yml
+.stylelintrc.json
+public/uploads/*
