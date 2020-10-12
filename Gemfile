@@ -42,12 +42,13 @@ gem 'redis-rails'
 gem 'rails-i18n'
 gem 'mysql2'
 gem 'font-awesome-sass', '~> 5.4.1'
-gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem 'carrierwave', '~> 2.0'
+gem 'kaminari'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 end
 
 group :development do
