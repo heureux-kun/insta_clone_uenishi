@@ -25,7 +25,6 @@ class PostsController < ApplicationController
 
   def update
     @post = current_user.posts.find(params[:id])
-    # ここの書き方が全然思いつかなかった
     if @post.update(post_params)
       redirect_to posts_path, success: '投稿を更新しました'
     else
@@ -36,9 +35,10 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comments = @post.comments
+    @comment = Comment.new
   end
 
-  # ここの書き方全然思いつかなかった
   def destroy
     @post = current_user.posts.find(params[:id])
     @post.destroy!
