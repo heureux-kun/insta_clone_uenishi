@@ -3,7 +3,6 @@ div id="comment-#{comment.id}"
     .col-2
       = image_tag 'https://placehold.jp/40x40.png', size: '40x40', class: 'rounded-circle'
     .col-9
-      | 
       span.font-weight-bold.pr-1
         = comment.user.username
       = comment.body
