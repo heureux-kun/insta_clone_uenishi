@@ -18,10 +18,10 @@
 
 class User < ApplicationRecord
   authenticates_with_sorcery!
-  
+
   # dependentオプション→投稿の親であるユーザーが削除されたら、その子である投稿も全て削除されるという意味
   has_many :posts, dependent: :destroy
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   validates :username, uniqueness: true, presence: true
   validates :email, uniqueness: true, presence: true

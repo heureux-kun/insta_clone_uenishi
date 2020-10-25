@@ -6,8 +6,6 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = current_user.comments.build(comment_params)
     @comment.save!
-    # @comment = current_user.comments.build(comment_params)
-    # @comment.save!
   end
 
   def edit
@@ -20,9 +18,7 @@ class CommentsController < ApplicationController
     @comment.update(comment_update_params)
   end
 
-  def show
-    
-  end
+  def show; end
 
   def destroy
     @comment = current_user.comments.find(params[:id])
