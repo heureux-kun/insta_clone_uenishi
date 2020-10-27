@@ -11,6 +11,8 @@ ja:
       post:
         images: '画像'
         body: '本文'
+      comment:
+        body: 'コメント'
 
 
   attributes:

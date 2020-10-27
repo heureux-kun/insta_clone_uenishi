@@ -1,2 +1,5 @@
-| $(".post-body").append("#{escape_javascript(render 'comments/comment', comment: @comment)}");
-| $("#comment_body").val("");
+- if @comment.errors.present?
+  | alert("#{@comment.errors.full_messages.join('\n')}");
+- else
+  | $(".post-body").append("#{escape_javascript(render 'comments/comment', comment: @comment)}");
+  | $("#comment_body").val("");
