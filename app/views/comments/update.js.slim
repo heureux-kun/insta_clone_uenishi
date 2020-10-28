@@ -1,0 +1,6 @@
+- if @comment.errors.present?
+  | alert("#{@comment.errors.full_messages.join('\n')}");
+- else
+  / すでに同じidの要素があった場合は中身を差し替えてくれる
+  | $("#comment-#{@comment.id}").html("#{escape_javascript(render 'comments/comment', comment: @comment)}");
+  | $("#comment-edit-modal").modal('hide');
