@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     # commentは必ずpostに紐づいているので、どのpostのcommentなのかという情報が必要になる
     @post = Post.find(params[:post_id])
     @comment = current_user.comments.build(comment_params)
-    @comment.save!
+    @comment.save
   end
 
   def edit
