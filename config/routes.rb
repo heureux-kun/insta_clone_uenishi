@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create]
   resources :posts do
     resources :comments, shallow: true
+    resources :likes, shallow: true, only: %i[create destroy]
   end
 end

@@ -7,12 +7,25 @@
       / current_user&.の「&.」→ぼっち演算子
       / ログインしないときにcurrent_userの後に「&」を付けずに実行すると、nilに対してメソッドを使おうとしてエラーになる
       / 「&」をつけると、そのメソッドがnilでなかった場合のみ右辺のメソッドが実行される
+      / もしログインしていて、自分のpostだったら
       - if current_user&.own?(post)
         .ml-auto
           = link_to post_path(post), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'mr-3' do
             = icon 'far', 'trash-alt', class: 'fa-lg'
           = link_to edit_post_path(post) do
             = icon 'far', 'edit', class: 'fa-lg'
+      / もしログインしていて、自分の投稿ではなかったら
+      - if current_user && !current_user&.own?(post)
+        .ml-auto
+          div id="like_area-#{post.id}"
+            / もし自分がこのpostにいいねしていなかったら（likeボタンを表示）
+            - unless current_user.like?(post)
+              = link_to post_likes_path(post), method: :post, remote: true do
+                = render 'likes/like', post: post 
+            / このpostにいいねしていたら（unlikeボタンを表示）
+            - else
+              = link_to like_path(post), method: :delete, remote: true do
+                = render 'likes/unlike', post: post
   / link_to_unless_currentで詳細ページの場合はリンクを貼らないようにしたかったがうまくいかなかった
   = link_to post_path(post) do
     .swiper-container
