@@ -1,1 +1,2 @@
-= icon 'far', 'heart' ,class: 'fa-lg'
+= link_to post_likes_path(post), method: :post, remote: true do
+  = icon 'far', 'heart' ,class: 'fa-lg'

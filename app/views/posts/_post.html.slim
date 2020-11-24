@@ -20,12 +20,10 @@
           div id="like_area-#{post.id}"
             / もし自分がこのpostにいいねしていなかったら（likeボタンを表示）
             - unless current_user.like?(post)
-              = link_to post_likes_path(post), method: :post, remote: true do
-                = render 'likes/like', post: post 
+              = render 'likes/like', post: post 
             / このpostにいいねしていたら（unlikeボタンを表示）
             - else
-              = link_to like_path(post), method: :delete, remote: true do
-                = render 'likes/unlike', post: post
+              = render 'likes/unlike', post: post
   / link_to_unless_currentで詳細ページの場合はリンクを貼らないようにしたかったがうまくいかなかった
   = link_to post_path(post) do
     .swiper-container
