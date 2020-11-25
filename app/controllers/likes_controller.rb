@@ -12,10 +12,4 @@ class LikesController < ApplicationController
     @post = Like.find(params[:id]).post
     current_user.unlike(@post)
   end
-
-  private
-
-  def post_params
-    params.require(:like).permit(:user_id, :post_id,)
-  end
 end
