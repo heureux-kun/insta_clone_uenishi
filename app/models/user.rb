@@ -22,6 +22,8 @@ class User < ApplicationRecord
   # dependentオプション→投稿の親であるユーザーが削除されたら、その子である投稿も全て削除されるという意味
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :like_posts, through: :likes, source: :post
 
   validates :username, uniqueness: true, presence: true
   validates :email, uniqueness: true, presence: true
@@ -31,5 +33,21 @@ class User < ApplicationRecord
 
   def own?(object)
     id == object.user_id
+  end
+  
+  # いいねした時の挙動を入れる
+  def like(post)
+    like_posts << post
+  end
+
+  # いいねを削除した時の挙動を入れる
+  def unlike(post)
+    like_posts.destroy(post)
+  end
+
+  # いいねしているかどうかの判断
+  def like?(post)
+    # includeはrubyのメソッド
+    like_posts.include?(post)
   end
 end

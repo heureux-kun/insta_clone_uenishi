@@ -1,0 +1,2 @@
+//like_area-(post_id名)というidが付いているdivの中にunlikeボタンを入れる
+| $('#like_area-#{@post.id}').html("#{escape_javascript(render 'like', post: @post)}")
